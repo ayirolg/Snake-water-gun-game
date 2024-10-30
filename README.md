@@ -21,8 +21,8 @@ The **Snake-Water-Gun Game** is a fun, browser-based game inspired by "Rock, Pap
 
   
 **Code Overview**
-    1. HTML: Structure and display elements.
-    2. CSS: Styling for the interface, including button hover effects and layout.
-    3. JavaScript: Game logic, including score calculation, round tracking, and computer’s choice generation.
+  1. HTML: Structure and display elements.
+  2. CSS: Styling for the interface, including button hover effects and layout.
+  3. JavaScript: Game logic, including score calculation, round tracking, and computer’s choice generation.
     
   Enjoy playing the Snake-Water-Gun Game and challenge yourself to beat the computer!
