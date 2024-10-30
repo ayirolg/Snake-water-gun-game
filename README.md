@@ -13,12 +13,16 @@ The **Snake-Water-Gun Game** is a fun, browser-based game inspired by "Rock, Pap
   4. At the end of 10 rounds, the game declares the winner based on the highest score.
 
 **How to Run**
-  Clone the repository:
-    git clone https://github.com/yourusername/snake-water-gun-game.git
-  Navigate to the project folder and open index.html in your browser.
+  1. Clone the repository:
+
+         git clone https://github.com/yourusername/snake-water-gun-game.git
+     
+  2. Navigate to the project folder and open index.html in your browser.
+
+  
 **Code Overview**
     1. HTML: Structure and display elements.
     2. CSS: Styling for the interface, including button hover effects and layout.
     3. JavaScript: Game logic, including score calculation, round tracking, and computer’s choice generation.
     
-    Enjoy playing the Snake-Water-Gun Game and challenge yourself to beat the computer!
+  Enjoy playing the Snake-Water-Gun Game and challenge yourself to beat the computer!
