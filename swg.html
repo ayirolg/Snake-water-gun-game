@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake, Water, Gun</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .box {
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 15px;
+            background-image: linear-gradient(to right, #8A2BE2, #4B0082);
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            color: white;
+        }
+        .choices {
+            margin-bottom: 10px;
+        }
+        .choices button {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            border: 1px solid violet;
+            border-radius: 10px;
+            background-color: blueviolet;
+            color: white;
+            cursor: pointer;
+        }
+        .choices button:hover {
+            background-color: rebeccapurple;
+            border: 1.5px solid black;
+        }
+        #playerDisplay, #computerDisplay {
+            font-size: 1.5rem;
+        }
+        #resultDisplay {
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+        #scoreDisplay {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+   <div class="box">
+        <h1>Snake - Water - Gun</h1>
+        <div class="choices">
+            <button onclick="playGame('snake')">Snake</button>
+            <button onclick="playGame('water')">Water</button>
+            <button onclick="playGame('gun')">Gun</button>
+        </div>
+        <div id="playerDisplay"><strong>PLAYER : </strong></div><br>
+        <div id="computerDisplay"><strong>COMPUTER : </strong></div><br>
+        <div id="resultDisplay"></div>
+        <div id="scoreDisplay">Player Score: 
+            <span id="playerScoreDisplay">0</span>
+        </div>
+        <div id="scoreDisplay">Computer Score: 
+            <span id="computerScoreDisplay">0</span>
+        </div>
+        <div id="roundDisplay">Rounds Played: 
+            <span id="roundCountDisplay">0</span>/10
+        </div>
+   </div>
+
+    <script type="text/javascript">
+        let choices = ["snake", "water", "gun"];
+        let playerDisplay = document.getElementById("playerDisplay");
+        let computerDisplay = document.getElementById("computerDisplay");
+        let resultDisplay = document.getElementById("resultDisplay");
+        let playerScoreDisplay= document.getElementById("playerScoreDisplay");
+        let computerScoreDisplay= document.getElementById("computerScoreDisplay");
+        let roundCountDisplay= document.getElementById("roundCountDisplay");
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundCount = 0;
+
+        function playGame(playerChoice) {
+            roundCount++;
+            roundCountDisplay.textContent = roundCount; 
+
+            let computerChoice = choices[Math.floor(Math.random() * 3)];
+            let result = "";
+
+            if (playerChoice === computerChoice) {
+                result = "IT'S A TIE!!!!";
+            } else {
+                switch (playerChoice) {
+                    case "snake":
+                        result = (computerChoice === "water") ? "YOU WIN!!!" : "YOU LOSE!!!";
+                        break;
+                    case "water":
+                        result = (computerChoice === "gun") ? "YOU WIN!!!" : "YOU LOSE!!!";
+                        break;
+                    case "gun":
+                        result = (computerChoice === "snake") ? "YOU WIN!!!" : "YOU LOSE!!!";
+                        break;
+                }
+            }
+
+            playerDisplay.textContent = `PLAYER: ${playerChoice}`;
+            computerDisplay.textContent = `COMPUTER: ${computerChoice}`;
+            resultDisplay.textContent = result;
+
+            if (result === "YOU WIN!!!") {
+                playerScore++;
+                playerScoreDisplay.textContent = playerScore;
+            } else if (result === "YOU LOSE!!!") {
+                computerScore++;
+                computerScoreDisplay.textContent = computerScore;
+            }
+            else{
+            	playerScore++;
+            	computerScore++;
+            	playerScoreDisplay.textContent = playerScore;
+            	computerScoreDisplay.textContent = computerScore;
+            }
+
+            if (roundCount === 10) {
+                let finalResult = playerScore > computerScore ? "YOU WON THE GAME!" : (playerScore < computerScore ? "YOU LOST THE GAME!" : "THE GAME IS A TIE!");
+                alert(finalResult);
+            }
+        }
+    </script>
+</body>
+</html>
